@@ -39,7 +39,26 @@ pph23-calculator/
 └── INSTALL.md
 ```
 
-### 3. Konfigurasi Nginx (Virtual Host)
+### 3. Izin Akses (Permissions) - PENTING!
+Agar web server (Nginx/PHP) dapat membaca file, pastikan user web server memiliki akses baca.
+
+Jika Anda menggunakan user khusus (seperti `nizen-apps`), pastikan permission diatur dengan benar (755 untuk folder, 644 untuk file):
+
+```bash
+# Masuk ke direktori parent
+cd /home/nizen-apps/htdocs/apps.nizen.my.id
+
+# Set permission folder ke 755 (Owner R/W/X, Group R/X, Other R/X)
+find pph23-calculator -type d -exec chmod 755 {} \;
+
+# Set permission file ke 644 (Owner R/W, Group R, Other R)
+find pph23-calculator -type f -exec chmod 644 {} \;
+
+# Opsional: Pastikan owner benar (jika clone menggunakan root)
+chown -R nizen-apps:nizen-apps pph23-calculator
+```
+
+### 4. Konfigurasi Nginx (Virtual Host)
 
 Tambahkan blok konfigurasi berikut ke file Virtual Host Nginx Anda (misalnya di `/etc/nginx/sites-available/apps.nizen.my.id` atau `vhost.conf` Anda):
 
@@ -78,7 +97,7 @@ location ^~ /pph23-calculator {
 }
 ```
 
-### 4. Restart Nginx
+### 5. Restart Nginx
 Setelah menyimpan konfigurasi, tes validasi config dan restart Nginx:
 
 ```bash
