@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#12141C" />
+      <stop offset="100%" stop-color="#050608" />
+    </linearGradient>
+    <clipPath id="calcClip">
+      <rect x="96" y="96" width="288" height="320" rx="48" />
+    </clipPath>
+    <mask id="cutout">
+      <rect width="512" height="512" fill="white" />
+      <path d="M 240 352 L 304 416 L 448 208" fill="none" stroke="black" stroke-width="80" stroke-linecap="round" stroke-linejoin="round" />
+    </mask>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Masked Calculator Group -->
+  <g mask="url(#cutout)">
+    <!-- Calculator Body & Thick Border -->
+    <rect x="96" y="96" width="288" height="320" rx="48" fill="#1A1D26" stroke="#FFFFFF" stroke-width="32" />
+    
+    <!-- Subtle Glass-like Diagonal Highlight -->
+    <path d="M 96 96 L 384 96 L 384 208 L 96 304 Z" fill="#FFFFFF" opacity="0.06" clip-path="url(#calcClip)" />
+
+    <!-- Neon Purple Display -->
+    <rect x="160" y="160" width="160" height="64" rx="16" fill="#D500F9" />
+
+    <!-- Simple Geometric Buttons -->
+    <rect x="160" y="256" width="64" height="48" rx="12" fill="#FFFFFF" />
+    <rect x="256" y="256" width="64" height="48" rx="12" fill="#FFFFFF" />
+    <rect x="160" y="336" width="64" height="48" rx="12" fill="#FFFFFF" />
+  </g>
+
+  <!-- Massive Emerald Green Accent Checkmark -->
+  <path d="M 240 352 L 304 416 L 448 208" fill="none" stroke="#00E676" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

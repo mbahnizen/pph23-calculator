@@ -1,0 +1,19 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Build cache
+.phpunit.cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Project-specific
+vhost.conf
