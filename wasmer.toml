@@ -1,0 +1,24 @@
+[package]
+name = "mbahnizen/pph23-calculator"
+version = "1.0.0"
+description = "Kalkulator PPh 23 & PPN online"
+readme = "README.md"
+
+[dependencies]
+"php/php" = "8.3"
+
+# Melakukan mapping folder lokal ke filesystem container Wasmer
+[fs]
+"/app" = "."
+"/config" = "./config"
+
+[[command]]
+name = "serve"
+module = "php/php"
+runner = "https://webc.org/runners/wasi"
+
+[command.annotations.wasi]
+# Memaksa PHP untuk membaca php.ini kustom yang baru kita buat
+env = ["PHPRC=/config"]
+# Perintah start persis seperti yang ada di UI, namun binding ke 0.0.0.0 agar port terbuka
+main_args = ["-S", "0.0.0.0:8080", "-t", "/app/public", "/app/public/index.php"]
