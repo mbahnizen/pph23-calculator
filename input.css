@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .glass-card {
+        @apply bg-slate-900/50 backdrop-blur-xl border border-white/5 shadow-2xl;
+    }
+
+    .input-base {
+        @apply bg-slate-800/50 border border-slate-700 text-white placeholder-slate-500 focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition-all;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block !important;
+    }
+
+    .glass-card {
+        background: none !important;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+
+    .text-white {
+        color: black !important;
+    }
+
+    .text-slate-400,
+    .text-slate-500,
+    .text-slate-600 {
+        color: #666 !important;
+    }
+
+    .text-brand-emerald {
+        color: #059669 !important;
+    }
+
+    .text-rose-400 {
+        color: #e11d48 !important;
+    }
+}
